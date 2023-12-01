@@ -34,7 +34,7 @@
             const url = inputURL.value;
 
             try {
-                const response = await fetch(`http://127.0.0.1:8081/scrape_website`, {
+                const response = await fetch(`http://127.0.0.1:8080/scrape_website`, {
                     method: 'POST',
                     mode: "cors",
                     cache: "no-cache",
@@ -67,7 +67,7 @@
             const prompt = secondSearchInput.value;
             const context = response.innerText
             try {
-                const response = await fetch(`http://127.0.0.1:8081/ask_question`, {
+                const response = await fetch(`http://127.0.0.1:8080/ask_question`, {
                     method: 'POST',
                     mode: "cors",
                     cache: "no-cache",
