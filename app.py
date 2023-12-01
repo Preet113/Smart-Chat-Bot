@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request 
+from flask import Flask, jsonify, request, render_template
 
 from script import scrape_website
 from script import ask_question
@@ -9,6 +9,10 @@ from flask_cors import CORS
 app = Flask(__name__) 
 
 CORS(app)
+
+@app.route("/") 
+def hello(): 
+    return render_template('bot.html') 
 
 @app.route('/scrape_website', methods = ['GET', 'POST',]) 
 def scrape_website_1():
