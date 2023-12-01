@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .button{
+        /* color: rgb(156, 156, 192); */
+        margin: 5px auto;
+        display: block;
+        padding: 5px;
+    }
+    .tab{
+        /* background-color: rgb(161, 62, 62); */
+        display: block;
+        text-align: center;
+        margin: auto;
+    }
+
+</style>
+
+<body>
+    <div class="container">
+
+        <input class="tab" type="text" id="inputURL" placeholder="Enter URL">
+        <button class="button" id="scrapeButton">Scrape Website</button>
+        <div id="response"></div>
+    </div>
+
+    <script>
+        const inputURL = document.getElementById('inputURL');
+        const scrapeButton = document.getElementById('scrapeButton');
+        const responseDiv = document.getElementById('response');
+
+        scrapeButton.addEventListener('click', async () => {
+            const url = inputURL.value;
+
+            try {
+                const response = await fetch(`http://127.0.0.1:5000/scrape_website`, {
+                    method: 'POST',
+                    mode: "cors", // no-cors, *cors, same-origin
+                    cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+                    credentials: "same-origin", // include, *same-origin, omit
+                    headers: {
+                        "Content-Type": "application/json",
+                        // 'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    redirect: "follow", // manual, *follow, error
+                    referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+                    body: JSON.stringify({
+                        url
+                    }), // body data type must match "Content-Type" header
+
+                });
+                if (response.ok) {
+                    const responseData = await response.json();
+                    console.log(responseData);
+                    responseDiv.innerText = responseData.data;
+                } else {
+                    console.error('Failed to scrape website:', response.statusText);
+                }
+            } catch (error) {
+                console.error('Fetch error:', error);
+            }
+        });
+    </script>
+</body>
+</body>
+
+</html>
+<!-- <img class="image" src="img/1000_F_285300188_EY3IQTDRMf0vWqPuDd6SmQDYHt1jwZB0.jpg" alt="Ai bot"> -->

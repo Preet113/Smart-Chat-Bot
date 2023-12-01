@@ -1,0 +1,72 @@
+body {
+    background: white;
+}
+
+.heading {
+    color: white;
+    font-size: 22px;
+    font-family: cursive;
+    /* margin: auto; */
+    text-align: center;
+    /* text-decoration: underline; */
+}
+
+.column {
+    display: block;
+    text-align: center;
+}
+
+.column input {
+    text-align: center;
+    width: 253px;
+    padding: 6px;
+}
+
+.column button {
+    display: block;
+    width: 7%;
+    border-radius: 20px;
+    margin: 17px auto;
+    cursor: pointer;
+    color: white;
+    padding: 5px;
+    background-color: black;
+    font-size: 13px;
+
+    /* font-family: baloo bhai;
+margin: 0px 8px;
+border: 2px solid rgb(69, 69, 69);
+border-radius: 15px;
+cursor: pointer;
+font-size: 19px; */
+}
+
+.column button:hover {
+    background-color: rgb(145, 157, 157);
+}
+
+text {
+    margin: auto;
+}
+
+.image {
+    display: block;
+    width: 36%;
+    margin-left: 10%;
+    margin-top: 4%;
+    border-radius: 50%;
+}
+
+.contact {
+    color: white;
+    font-family: Kokonor;
+    position: absolute;
+    top: 20px;
+    right: 40px;
+}
+
+.contact:hover {
+    color: red;
+    text-decoration: underline;
+    cursor: pointer;
+}

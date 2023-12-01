@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <select style="width: 150px;" id="slct1">
+        <option>Choose a Species</option>
+    </select>
+    <br>
+    <select style="width: 150px;" id="slct2"></select>
+
+
+    <script>
+        let species = ["Animals", "Vegetables"];
+        let animals = ["Lion", "Cow", "Turtle"];
+        let vegetables = ["Cucumber", "Pumpkin", "Potato"];
+
+        let slct1 = document.getElementById("slct1");
+        let slct2 = document.getElementById("slct2");
+
+        species.forEach(function addSpecies(item) {
+            let option = document.createElement("option") ;
+            option.text = item;
+            option.value = item;
+            slct1.appendChild(option);
+        });
+
+        slct1.onchange = function () {
+            slct2.innerHTML = "<option></option>";
+            if (this.value == "Animals") {
+                addToslct2(animals);
+            }
+            if (this.value == "Vegetables") {
+                addToslct2(vegetables);
+            }
+        }
+        function addToslct2(arr) {
+            arr.forEach(function (item) {
+                let option = document.createElement("option");
+                option.text = item;
+                option.value = item;
+                slct2.appendChild(option);
+            });
+        }
+    </script>
+</body>
+
+</html>

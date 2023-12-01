@@ -1,0 +1,145 @@
+body {
+    background: rgb(0, 0, 0);
+}
+
+.heading {
+    color: rgb(255, 255, 255);
+    font-size: 22px;
+    font-family: cursive;
+    text-align: center;
+}
+
+.column {
+    display: block;
+    text-align: center;
+}
+
+.input {
+    text-align: center;
+    display: block;
+    margin: auto;
+    width: 253px;
+    padding: 6px;
+}
+
+.button {
+    font-family: baloo bhai;
+    display: block;
+    width: 8%;
+    border-radius: 20px;
+    margin: 17px auto;
+    cursor: pointer;
+    color: white;
+    padding: 5px;
+    background-color: black;
+    font-size: 13px;
+}
+
+.button:hover {
+    background-color: rgb(145, 157, 157);
+}
+
+text {
+    margin: auto;
+}
+
+.image {
+    display: block;
+    /* position: absolute; */
+    /* top: 10%;
+    left: 10%; */
+    margin: auto;
+    width: 34%;
+    border-radius: 50%;
+    /* position: absolute;
+    top: 10%;
+    left: 10%;
+    margin: auto;
+    width: 34%;
+    border-radius: 50%; */
+}
+
+.contact {
+    color: white;
+    font-family: Kokonor;
+    position: absolute;
+    top: 20px;
+    right: 40px;
+}
+
+.contact:hover {
+    color: red;
+    text-decoration: underline;
+    cursor: pointer;
+    
+}
+
+#secondSearchResponse {
+    /* display: block;
+    position: absolute;
+    top: 20%;
+    right: 10%; */
+    color: rgb(255, 255, 255);
+    /* display: none; */
+    /* border: 2px solid red; */
+    /* height: 200px;
+    width: 400px; */
+    
+}
+
+#secondSearchBox {
+    display: none;
+    
+}
+/* .text{
+    position: absolute;
+    bottom: 20px;
+    left: 30%;
+} */
+
+/* #separateTextSection {
+    color: red;
+} */
+
+/* .created {
+    color: white;
+    text-align: center;
+} */
+
+
+
+
+
+
+/* .hover-dibba {
+    font-family: cursive;
+    position: absolute;
+    font-size: 30px;
+    color: white;
+    top: -7px;
+    right: 2%;
+    width: 100px;
+    height: 100px;
+    background-color: rgb(0, 0, 0);
+    margin: 50px;
+} */
+/* 
+.hidden-shabd {
+    font-family: baloo bhai;
+    position: absolute;
+    cursor: pointer;
+    color: wheat;
+    margin: 1px;
+    font-size: 20px;
+    top: 73%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    visibility: hidden;
+} */
+/* a{
+    color: red;
+} */
+
+/* .hover-dibba:hover .hidden-shabd {
+    visibility: visible;
+} */
