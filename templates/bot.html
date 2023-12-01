@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Web Scraper</title>
+
+</head>
+<link rel="stylesheet" href="bot_style.css">
+
+<body>
+    <div class="heading">
+        <h1>Smart Chat Bot</h1>
+    </div>
+    <input class="input" type="text" id="inputURL" placeholder="Enter URL">
+    <button class="button" id="scrapeButton">Scrape Website</button>
+    <div id="response"></div>
+
+    <div id="secondSearchBox">
+        <input class="input" type="text" id="secondSearchInput" placeholder="Search for specific data">
+        <button class="button" id="secondSearchButton">Search</button>
+        <div id="secondSearchResponse"></div>
+    </div>
+
+    <script>
+        const inputURL = document.getElementById('inputURL');
+        const scrapeButton = document.getElementById('scrapeButton');
+        const response = document.getElementById('response');
+        const secondSearchBox = document.getElementById('secondSearchBox');
+        const secondSearchInput = document.getElementById('secondSearchInput');
+        const secondSearchButton = document.getElementById('secondSearchButton');
+        const secondSearchResponse = document.getElementById('secondSearchResponse');
+
+        scrapeButton.addEventListener('click', async () => {
+            const url = inputURL.value;
+
+            try {
+                const response = await fetch(`http://127.0.0.1:8080/scrape_website`, {
+                    method: 'POST',
+                    mode: "cors",
+                    cache: "no-cache",
+                    credentials: "same-origin",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    redirect: "follow",
+                    referrerPolicy: "no-referrer",
+                    body: JSON.stringify({
+                        url
+                    }),
+                });
+                if (response.ok) {
+                    const responseData = await response.json();
+                    console.log(responseData);
+                    response.innerText = responseData.data;
+
+                    // Show the second search box
+                    secondSearchBox.style.display = 'block';
+                } else {
+                    console.error('Failed to scrape website:', response.statusText);
+                }
+            } catch (error) {
+                console.error('Fetch error:', error);
+            }
+        });
+
+        secondSearchButton.addEventListener('click', async () => {
+            const prompt = secondSearchInput.value;
+            const context = response.innerText
+            try {
+                const response = await fetch(`http://127.0.0.1:8080/ask_question`, {
+                    method: 'POST',
+                    mode: "cors",
+                    cache: "no-cache",
+                    credentials: "same-origin",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    redirect: "follow",
+                    referrerPolicy: "no-referrer",
+                    body: JSON.stringify({
+                        prompt, context
+                    }),
+                });
+                if (response.ok) {
+                    const responseData = await response.json();
+                    console.log(responseData);
+                    secondSearchResponse.textContent = responseData.data;
+
+                    // Show the second search box
+                    secondSearchBox.style.display = 'block';
+                } else {
+                    console.error('Failed to scrape website:', response.statusText);
+                }
+            } catch (error) {
+                console.error('Fetch error:', error);
+            }
+        });
+    </script>
+
+    <img class="image" src="img/1000_F_285300188_EY3IQTDRMf0vWqPuDd6SmQDYHt1jwZB0.jpg" alt="Ai bot">
+    <!-- <div class="text">
+        #secondSearchResponse
+    </div> -->
+    <!-- <div class="created">
+        <h1>&copy; Created By Preet Singh Sahota</h1>
+    </div> -->
+
+
+    <div class="hover-dibba">
+        Contact Me
+        <div class="hidden-shabd">
+            <a href="https://github.com/Preet113">GitHub</a>
+        </div>
+    </div>
+
+</body>
+
+</html>
