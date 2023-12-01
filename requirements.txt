@@ -4,4 +4,4 @@ Gunicorn
 openai
 bs4
 requests
-dotenv
+python-dotenv
