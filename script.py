@@ -1,8 +1,14 @@
 import requests
 from bs4 import BeautifulSoup
 import openai
+from dotenv import load_dotenv
+import os
 
-openai.api_key = "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"
+# load_dotenv()
+
+# my_password = os.getenv("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")
+
+openai.api_key = os.getenv("Api_key")
 
 def scrape_website(url):
     try:
